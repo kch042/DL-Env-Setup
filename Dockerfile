@@ -23,4 +23,10 @@ update-locale
 RUN update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 10 && \
 python3 -m pip install --upgrade pip
 
+# install torch v13.1
+# ref: https://pytorch.org/get-started/previous-versions/
+RUN pip --no-cache-dir install torch==1.13.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
+
+
+
 CMD ["/bin/bash"]
