@@ -24,6 +24,6 @@ RUN update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python
 python3 -m pip install --upgrade pip
 
 COPY ./requirements.txt /tmp/requirements.txt
-RUN pip --no-cache-dir install -r requirements.txt
+RUN pip --no-cache-dir install -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 CMD ["/bin/bash"]

@@ -1,1 +1,1 @@
-docker run -it -v $(pwd):/root/workspace --gpus all kch:v3 /bin/bash
+docker run --name kch_testv3 -it -v $(pwd):/root/workspace --gpus all kch:v3 /bin/bash
