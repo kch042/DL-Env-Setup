@@ -23,15 +23,7 @@ update-locale
 RUN update-alternatives --install /usr/local/bin/python3 python3 /usr/bin/python3.9 10 && \
 python3 -m pip install --upgrade pip
 
-# install torch v13.1
-# ref: https://pytorch.org/get-started/previous-versions/
-RUN pip --no-cache-dir install torch==1.13.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
-
-# install deepchem and its dependencies (tensorflow, dgl)
-RUN pip --no-cache-dir install deepchem==2.7.1
-RUN pip --no-cache-dir install  dgl -f https://data.dgl.ai/wheels/cu116/repo.html
-RUN pip --no-cache-dir install  dglgo -f https://data.dgl.ai/wheels-test/repo.html
-# RUN pip --no-cache-dir install tensorflow==2.11
-
+COPY ./requirements.txt /tmp/requirements.txt
+RUN pip --no-cache-dir install -r requirements.txt
 
 CMD ["/bin/bash"]
