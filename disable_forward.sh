@@ -1,1 +1,0 @@
-ln -sf libcuda.so.470.182.03 /usr/lib/x86_64-linux-gnu/libcuda.so.1
